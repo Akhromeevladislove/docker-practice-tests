@@ -13,7 +13,7 @@ def test_postgress_connection():
             host = "localhost",
             database = "testdb",
             user = "testuser",
-            password = "testpassword",
+            password = "testpass",
         )
         cur = conn.cursor()
         # Создаем таблицу в БД
