@@ -16,6 +16,16 @@ def test_postgress_connection():
             password = "testpassword",
         )
         cur = conn.cursor()
+        # Создаем таблицу в БД
+        cur.execute("""
+                    CREATE TABLE IF NOT EXISTS SystemSettings (
+                    id SERIAL PRIMARY KEY,
+                    name VARCHAR(100) NOT NULL,
+                    value VARCHAR(100) NOT NULL)
+                    """)
+        # Выполняем инсерт в таблицу в БД
+        cur.execute("INSERT INTO SystemSettings (name, value) VALUES ('clientname','test')")
+        conn.commit()
 
         # выполняем запрос на получение данных из БД
         cur.execute("SELECT VALUE FROM SystemSettings where name ilike 'clientname'")
