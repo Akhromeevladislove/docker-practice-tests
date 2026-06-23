@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Виртуальное окружение
+venv/
+env/
+.venv
+
+# IDEs и редакторы
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Файлы с отчётами и кэшем
+.pytest_cache/
+htmlcov/
+.tox/
+.coverage
+*.log
+test_results.xml
+
+# Секреты и конфиги
+.env
+*.pem
+
+# Docker
+docker-compose.override.yml
