@@ -1,5 +1,6 @@
 import psycopg2
 import pytest
+from get_value_db import get_value_from_db
 
 def test_postgress_connection():
     # Тест проверяет
@@ -28,15 +29,15 @@ def test_postgress_connection():
         conn.commit()
 
         # выполняем запрос на получение данных из БД
-        cur.execute("SELECT VALUE FROM SystemSettings where name ilike 'clientname'")
-        result = cur.fetchone()[0]
+        # cur.execute("SELECT VALUE FROM SystemSettings where name ilike 'clientname'")
+        # result = cur.fetchone()[0]
 
         # закрываем соединение
         cur.close()
         conn.close()
 
         # проверяем результат
-        assert result == 'test'
+        assert get_value_from_db() == 'test'
         print("✅ PostgreSQL работает корректно!")
 
     except Exception as e:
