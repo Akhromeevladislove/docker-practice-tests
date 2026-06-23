@@ -32,3 +32,7 @@ def test_multiple_sites():
     
     for site in sites:
         assert check_website(site) == True, f"Сайт {site} недоступен"
+# 5. Проверка на недоступный сайт - ошибка авторизации  
+def test_unauthorized():
+    result = check_website("https://httpbin.org/status/401")
+    assert result == False

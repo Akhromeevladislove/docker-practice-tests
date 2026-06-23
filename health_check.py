@@ -8,6 +8,8 @@ def check_website(url):
             print(f"✅{url} доступен (Статус: {response.status_code})")
             return True
         else:
+            if response.status_code == 401:
+                print (f"⚠️ошибка авторизации при запросе к {url}")
             print(f"⚠️{url} не доступен (Статус: {response.status_code})")
             return False
     except Exception as e:
